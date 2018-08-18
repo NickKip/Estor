@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "experimentalDecorators": true,
+    "jsx": "react",
+    "jsxFactory": "window.__CTRender",
+    "lib": [
+      "dom",
+      "es2015",
+      "es2016",
+      "es2017"
+    ],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "noImplicitUseStrict": true,
+    "sourceMap": true,
+    "target": "ES5",
+    "skipLibCheck": true,
+    "preserveConstEnums": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "awesomeTypescriptLoaderOptions": {
+    "silent": true
+  }
+}

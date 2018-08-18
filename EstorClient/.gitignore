@@ -1,0 +1,8 @@
+.DS_Store
+.sonarlint
+npm-debug.log
+node_modules/
+package-lock.json
+.vscode/chrome
+build/js/Estor.app.js
+build/js/Estor.vendors.js

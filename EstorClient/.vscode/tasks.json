@@ -1,0 +1,107 @@
+{
+    "version": "2.0.0",
+    "command": "dotnet",
+    "args": [],
+    "tasks": [
+        {
+            "identifier": "RunDev",
+            "label": "Run Dev",
+            "command": "npm",
+            "type": "shell",
+            "args": [
+                "run",
+                "start",
+                "--",
+                "--port",
+                "9999",
+                "--content-base",
+                "build/",
+                "--inline",
+                "--hot",
+                "--history-api-fallback"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "never",
+                "focus": false,
+                "panel": "shared"
+            },
+            "isBackground": true,
+            "problemMatcher": [
+                {
+                    "owner": "custom",
+                    "pattern": {
+                      "regexp": "____________"
+                    },
+                    "background": {
+                        "activeOnStart": true,
+
+                        // Webpack 4
+                        "beginsPattern": "^webpack$",
+                        "endsPattern": "^ℹ ｢wdm｣: Compiled successfully.$"
+
+                        // Webpack 3
+                        // "beginsPattern": "^Project is running at.*",
+                        // "endsPattern": "^webpack: Compiled successfully.*"
+                    }
+                },
+            ]
+        },
+        {
+            "label": "Build for Dev",
+            "command": "webpack",
+            "type": "shell",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "dedicated"
+            },
+            "problemMatcher": [],
+            "isBackground": false
+        },
+        {
+            "label": "Build for Production",
+            "command": "webpack -p",
+            "type": "shell",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "dedicated"
+            },
+            "problemMatcher": [],
+            "isBackground": false
+        },
+        {
+            "label": "Build Service Worker Dev",
+            "command": "webpack --config webpack.serviceworker.js",
+            "type": "shell",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "isBackground": false
+        },
+        {
+            "label": "Build Service Worker Production",
+            "command": "webpack --config webpack.serviceworker.js -p",
+            "type": "shell",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "isBackground": false
+        }
+    ]
+}

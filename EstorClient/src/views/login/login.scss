@@ -1,0 +1,14 @@
+@import "styles/default.scss";
+
+:host {
+    div.container {
+
+        div.content {
+            padding: 20px;
+
+            wc-button {
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
