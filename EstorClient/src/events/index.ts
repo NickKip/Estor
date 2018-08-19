@@ -1,4 +1,8 @@
 export const enum EstorEvents {
 
-    DemoEvent = "demo-event"
+    DemoEvent = "demo-event",
+
+    // Modal
+    CloseModal = "close-modal",
+    OpenModal = "open-modal"
 }

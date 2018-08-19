@@ -1,0 +1,37 @@
+@import "styles/views.scss";
+
+@mixin view-prospects {
+
+    div.container {
+
+        div.content {
+
+            width: 100%;
+
+            div.prospects-list {
+
+                @include box-shadow();
+                padding: 20px;
+                background-color: white;
+
+                div.prospect-actions {
+
+                    display: flex;
+
+                    wc-button {
+                        flex: 0 0 auto;
+                        margin: 0 10px 20px 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+view-prospects {
+    @include view-prospects();
+}
+
+:host {
+    @include view-prospects();
+}

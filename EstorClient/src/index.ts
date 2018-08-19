@@ -1,13 +1,13 @@
-import { AppClasses, AppConfig, HandlerClasses } from "@commontimeltd/infinity-framework";
+import { AppClasses, HandlerClasses } from "@commontimeltd/infinity-framework";
+import { EstorConfig } from "client/config/estor-config";
 import { EstorManager } from "client/manager";
 import { EstorRestClient } from "client/rest/rest-client";
 import { EstorStore } from "client/store/store";
 import { EstorDemoHandler } from "handlers";
-import { estorViews } from "views/register";
+import { EstorViews } from "views/register";
 
 // All components required for your app are exported into the build
 export * from "components";
-
 // Likewise, the same goes for your views
 export * from "views";
 
@@ -28,11 +28,12 @@ const estorHandlers: HandlerClasses = {
 };
 
 // Pass configuration into your manager
-const config: AppConfig = {
+const config: EstorConfig = {
 
-    name: "Estor"
+    name: "Estor",
+    showBuild: true
 };
 
 // This is needed to init everything. You could defer this
 // into a custom JS script (for example, when inside CTI).
-window.EstorManager = new EstorManager("body", "view-login", config, estorViews, myCustomClasses, estorHandlers);
+window.EstorManager = new EstorManager("body", "view-login", config, EstorViews, myCustomClasses, estorHandlers);

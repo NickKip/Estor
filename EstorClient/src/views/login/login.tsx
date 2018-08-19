@@ -13,13 +13,32 @@ export class Login extends BaseLitComponent<EstorManager> {
 
     // === Private === //
 
+    private _signIn = (): void => {
+
+        this.manager.router.goToPage(EstorViews.Dashboard);
+    }
+
     // === Render === //
 
     componentMarkup (): TemplateResult {
 
         return html`
-            <div>
-                <h1>My Login Page</h1>
+            <div class="container">
+
+                <div class="heading">
+                    <div class="inner">
+                        <h1>Estor</h1>
+                        <p>Create and manage prospects, quotes and jobs effortlessly.</p>
+                    </div>
+                </div>
+
+                <div class="login">
+                    <wc-button type="primary" label="Sign In" action="${this._signIn}"></wc-button>
+                    <wc-button label="Register Account"></wc-button>
+                    <p><a href="#">What is Estor?</a></p>
+                </div>
+
+                <wc-version-info></wc-version-info>
             </div>
         `;
     }

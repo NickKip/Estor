@@ -1,14 +1,52 @@
-@import "styles/default.scss";
+@import "styles/views.scss";
 
-:host {
+@mixin view-login {
+
     div.container {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        width: 100vw;
+        padding-bottom: 30px;
 
-        div.content {
-            padding: 20px;
+        background-color: $color-one;
 
-            wc-button {
-                margin-bottom: 20px;
+        div.heading {
+            display: flex;
+            flex-direction: column;
+            flex: 0 0 40%;
+
+            div.inner {
+                margin: auto;
+
+                h1, p {
+                    margin: 0;
+                    text-align: center;
+                }
+
+                h1 {
+                    font-size: 3em;
+                    margin-bottom: 30px;
+                }
             }
         }
+
+        div.login {
+            width: 70%;
+            margin: 0 auto;
+        }
+
+        wc-version-info {
+
+            margin-top: auto;
+        }
     }
+}
+
+view-login {
+    @include view-login();
+}
+
+:host {
+    @include view-login();
 }

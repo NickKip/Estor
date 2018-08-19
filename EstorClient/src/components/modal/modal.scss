@@ -1,0 +1,15 @@
+@import "styles/default.scss";
+
+@mixin wc-modal {
+
+    div.modal-container {
+    }
+}
+
+wc-modal {
+    @include wc-modal();
+}
+
+:host {
+    @include wc-modal();
+}

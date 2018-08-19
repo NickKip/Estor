@@ -1,44 +1,154 @@
 /* FONTS */
-$default-font-family: Arial, Helvetica, sans-serif;
+$default-font-family: "Roboto", Tahoma, Helvetica, sans-serif;
+$secondary-font-family: "Encode Sans", Tahoma, Helvetica, sans-serif;
 $default-font-color: #333536;
 $default-font-color-light: #9d9d9d;
 $default-placeholder-color: #a8a8a8;
 
 /* BACKGROUND */
-$default-bg-color: white;
+$default-bg-color: #eceff1;
 $default-bg-color-light: white;
 $default-bg-color-dark: #f5f5f5;
 
+/* COLOURS */
+$color-one: #DDF9C1;
+$color-one-font: $default-font-color;
+
+$color-two: #003E1F;
+$color-two-font: #fff;
+
+$color-three: #73BA9B;
+$color-three-font: #fff;
+
+$color-four: #BA2D0B;
+$color-four-font: #fff;
+
+$color-five: #FFA630;
+$color-five-font: $default-font-color;
+
+$primary-color: #3563b3;
+$primary-font-color: white;
+
+$secondary-color: #4fb5fe;
+$secondary-font-color: white;
+
+$success-color: #32b148;
+$warning-color: #ffc107;
+$danger-color: #d01a1b;
+
 /* BORDERS */
 $default-border-color: #d9d9d9;
+$form-border-color: #d9dee1;
 
-html, body {
+/* HOVER */
+$hover-color: lighten($default-border-color, 10%);
 
-    font-family: var(--default-font-family, $default-font-family);
+/* FORMS */
+$placeholder-color: #6e757c;
+
+/* BUTTONS */
+$primary-button-color: $primary-color;
+$primary-button-font: $primary-font-color;
+
+$normal-button-color: $secondary-color;
+$normal-button-font: $secondary-font-color;
+
+$cancel-button-color: #b3bec9;
+$cancel-button-font: white;
+
+/* MEDIA BREAKPOINTS */
+$screen-sm-min: 576px;
+$screen-md-min: 768px;
+$screen-lg-min: 992px;
+$screen-xl-min: 1200px;
+$screen-xs-max: ($screen-sm-min - 1);
+$screen-sm-max: ($screen-md-min - 1);
+$screen-md-max: ($screen-lg-min - 1);
+$screen-lg-max: ($screen-xl-min - 1);
+
+/* STYLES */
+
+:host {
+
+    font-family: $default-font-family;
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1.2em;
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 // === Default "host" element styling === //
 
-:host {
-    color: var(--default-font-color, $default-font-color);
+h1, h2, h3, h4, h5, h6 {
+    color: $default-font-color;
     font-weight: normal;
-    font-family: var(--default-font-family, $default-font-family);
+    font-family: $default-font-family;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
-    h1, h2, h3, h4, h5, h6 {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
+h2 {
+    font-size: 1.6em;
+    font-weight: 500;
+    line-height: 1.8em;
+}
+
+h3 {
+    font-size: 1.4em;
+    font-weight: 300;
+    line-height: 1.6em;
+    margin-bottom: 0;
+}
+
+h4 {
+    font-size: 1.2em;
+    line-height: 1.4em;
+}
+
+a, a:visited {
+
+    color: $primary-color;
+
+    &:hover {
+        text-decoration: none;
     }
 }
 
-:host, :host * {
-    box-sizing: border-box;
+.center {
+    text-align: center;
 }
 
-:host(.noOpacity) {
+.noOpacity {
     opacity: 0;
 }
 
-:host(.fadeIn) {
+.fadeIn {
     transition: all 0.5s linear;
     opacity: 1;
+}
+
+@mixin view-dimensions {
+    display: block;
+    height: 100%;
+    width: 100%;
+
+    html:-webkit-full-screen & {
+        height: 100vh;
+    }
+}
+
+@media (display-mode: fullscreen) {
+    div.container {
+        height: 100vh;
+        width: 100vw;
+    }
+}
+
+@mixin box-shadow() {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }

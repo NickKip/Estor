@@ -1,0 +1,44 @@
+@mixin icon {
+    display: flex;
+
+    svg {
+        margin: auto;
+    }
+}
+
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
+wc-icon {
+    @include icon
+}
+
+wc-icon[spin] {
+
+    -webkit-animation: spin 1s infinite linear;
+    -moz-animation: spin, 1s, infinite linear;
+    -o-animation: spin 1s infinite linear;
+    animation: spin 1s infinite linear;
+
+    @include icon
+}
+
+:host {
+    @include icon
+}
+
+:host([spin]) {
+
+    -webkit-animation: spin 1s infinite linear;
+    -moz-animation: spin, 1s, infinite linear;
+    -o-animation: spin 1s infinite linear;
+    animation: spin 1s infinite linear;
+
+    @include icon
+}

@@ -1,0 +1,190 @@
+@import "styles/default.scss";
+
+@mixin list {
+    
+    width: 100%;
+
+    div.paginated-list-container {
+
+        div.list-header,
+        div.list-row {
+
+            display: flex;
+            justify-content: flex-start;
+            padding: 0 20px;
+            cursor: pointer;
+
+            div.list-col {
+                display: flex;
+                margin: auto 0;
+                font-size: 0.9em;
+
+                span.light {
+                    color: $default-font-color-light;
+                    font-size: 0.8em;
+                }
+
+                &.sent-to {
+                    width: 150px;
+                    min-width: 150px;
+                    margin-right: 5px;
+
+                    span {
+                        display: inline-block;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        text-align: left;
+                    }
+                }
+
+                &.prospect-type {
+                    width: 60px;
+                }
+
+                &.prospect-name {
+                    width: 15%;
+                }
+
+                &.prospect-address {
+                    width: 25%;
+                }
+
+                &.prospect-city {
+                    width: 20%;
+                }
+
+                &.prospect-quote {
+                    width: 20%;
+                }
+
+                &.select {
+                    width: 40px;
+                }
+            }
+        }
+
+        div.list-header {
+
+            background-color: $hover-color;
+            cursor: initial;
+
+            div.list-col {
+
+                height: 30px;
+
+                span {
+                    margin: auto 0;
+                    color: $default-font-color-light;
+                    text-transform: uppercase;
+                    font-size: 0.8em;
+                }
+            }
+        }
+
+        div.list-row {
+
+            border-bottom: 2px solid $default-bg-color;
+            height: 60px;
+            margin: auto 0;
+
+            &:hover {
+                background-color: $hover-color;
+            }
+
+            &.quote-blocked {
+                background-color: lighten($warning-color, 40%);
+
+                &:hover {
+                    background-color: lighten($warning-color, 35%);
+                }
+
+                div.list-col {
+
+                    span {
+                        color: $default-font-color;
+                    }
+                }
+            }
+
+            &.job-blocked {
+                background-color: lighten($danger-color, 50%);
+
+                &:hover {
+                    background-color: lighten($danger-color, 48%);
+                }
+
+                div.list-col {
+
+                    span {
+                        color: $danger-color;
+                    }
+                }
+            }
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            div.list-col {
+                color: $default-font-color-light;
+
+                span {
+                    color: $default-font-color;
+
+                    &.action {
+                        background-color: $success-color;
+                        color: white;
+                        font-size: 0.8em;
+                        padding: 3px 7px;
+                        border-radius: 4px;
+                    }
+                }
+
+                wc-icon {
+                    margin: auto;
+                }
+            }
+        }
+
+        div.mail-pagination {
+            display: flex;
+            width: 100%;
+            height: 80px;
+
+            div.pagination-inner {
+                height: 100%;
+                display: flex;
+                justify-content: flex-start;
+                margin: auto;
+
+                wc-button {
+                    // min-width: 30px;
+                    // height: 30px;
+                    margin: auto 2px;
+                    flex: 0 0 auto;
+
+                    &#prev,
+                    &#next {
+                        // width: 80px;
+                    }
+                }
+            }
+        }
+
+        p.size {
+            font-size: 0.8em;
+            color: $default-font-color-light;
+            padding: 0 20px;
+            text-align: center;
+        }
+    }
+}
+
+wc-list {
+    @include list
+}
+
+:host {
+    @include list
+}

@@ -1,0 +1,202 @@
+@import "styles/default.scss";
+
+@mixin button($disabled, $spin) {
+
+    display: block;
+    // flex: 0 1 auto;
+    margin-bottom: 20px;
+
+    div.button-container {
+
+        button {
+
+            border: 0;
+            // padding: 10px 20px 10px 0;
+            font-size: inherit;
+            border-radius: 4px;
+            // width: 100%;
+            display: flex;
+            outline: 0;
+            min-height: 44px;
+            margin: auto;
+            text-align: center;
+
+            &.left-icon {
+                padding: 0 20px 0 0;
+            }
+
+            slot {
+                width: 70%;
+                margin: auto;
+                display: block;
+            }
+
+            wc-icon {
+                margin: auto !important;
+            }
+
+            div.left-icon {
+
+                margin: auto 0;
+
+                &.left-align {
+                    margin: auto 0 auto 0;
+                }
+            }
+
+            div.right-icon {
+
+                margin: auto 0 auto auto;
+            }
+
+            div.left-icon,
+            div.right-icon {
+
+                width: 40px;
+            }
+
+            @if $disabled {
+
+                background-color: transparent;
+                color: $default-font-color-light;
+
+                &:hover {
+                    cursor: not-allowed;
+                }
+            }
+            @else {
+
+                &:hover {
+                    cursor: pointer;
+                }
+
+                color: $color-five-font;
+                background-color: $color-five;
+
+                &.primary {
+
+                    color: $color-two-font;
+                    background-color: $color-two;
+
+                    div.left-icon,
+                    div.right-icon {
+                        color: $color-two-font;
+                    }
+                }
+
+                &.cancel {
+
+                    color: $cancel-button-font;
+                    background-color: $cancel-button-color;
+
+                    div.left-icon,
+                    div.right-icon {
+                        color: $cancel-button-font;
+                    }
+                }
+
+                &.danger {
+
+                    color: $cancel-button-font;
+                    background-color: $danger-color;
+
+                    div.left-icon,
+                    div.right-icon {
+                        color: $cancel-button-font;
+                    }
+                }
+
+                &.success {
+
+                    color: $primary-button-font;
+                    background-color: $success-color;
+                    display: initial;
+                    font-size: .8em;
+                    padding: 5px 10px;
+                    font-weight: 600;
+
+                    div.left-icon,
+                    div.right-icon {
+                        color: $primary-button-font;
+                    }
+                }
+
+                &.transparent {
+
+                    color: $default-font-color;
+                    background-color: transparent;
+
+                    div.left-icon,
+                    div.right-icon {
+                        color: $default-font-color;
+                    }
+                }
+
+                &.selected {
+                    background-color: transparent;
+                }
+            }
+
+            @if $spin {
+                &:hover {
+                    cursor: not-allowed !important;
+                }
+            }
+        }
+    }
+}
+
+@mixin spin {
+
+    // div.button-container {
+
+    //     button {
+
+    //         &:hover {
+    //             cursor: not-allowed !important;
+    //         }
+
+    //         // wc-icon {
+    //         //     margin: auto;
+    //         //     -webkit-animation: spin 1s infinite linear;
+    //         //     -o-animation: spin 1s infinite linear;
+    //         //     animation: spin 1s infinite linear;
+    //         // }
+    //     }
+    // }
+}
+
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
+wc-button {
+    @include button(false, false);
+}
+
+wc-button[disabled] {
+    @include button(true, false);
+}
+
+wc-button[spin] {
+    @include button(false, true);
+    @include spin();
+}
+
+:host {
+    @include button(false, false);
+}
+
+:host([disabled]) {
+    @include button(true, false);
+}
+
+:host([spin]) {
+    @include button(false, true);
+    @include spin();
+}

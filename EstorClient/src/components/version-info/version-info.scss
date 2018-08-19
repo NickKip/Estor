@@ -1,0 +1,31 @@
+@import "styles/default.scss";
+
+@mixin wc-version-info {
+
+    display: block;
+
+    div.version-info-container {
+
+        display: flex;
+        flex-direction: column;
+
+        p {
+            font-size: 0.8em;
+            color: $default-font-color-light;
+            margin: 0 auto 5px;
+            text-align: center;
+
+            span {
+                font-style: italic;
+            }
+        }
+    }
+}
+
+wc-version-info {
+    @include wc-version-info();
+}
+
+:host {
+    @include wc-version-info();
+}

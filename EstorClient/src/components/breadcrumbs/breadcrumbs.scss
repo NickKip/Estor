@@ -1,0 +1,53 @@
+@import "styles/default.scss";
+
+@mixin wc-breadcrumbs {
+
+    display: block;
+    margin-bottom: 20px;
+    color: $default-font-color-light;
+    margin-left: -8px;
+
+    div.breadcrumbs-container {
+        display: flex;
+
+        wc-icon-button, span {
+            margin: auto 0;
+        }
+
+        wc-icon-button {
+            &:hover {
+                background-color: transparent;
+            }
+        }
+
+        span {
+
+            &:hover {
+                text-decoration: underline;
+                cursor: pointer;
+            }
+
+            &.break {
+                display: inline-block;
+                margin: auto 20px auto 10px;
+            }
+
+            &.break,
+            &.last {
+
+                &:hover {
+                    text-decoration: none;
+                    cursor: initial;
+                }
+            }
+        }
+    }
+}
+
+wc-breadcrumbs {
+    @include wc-breadcrumbs();
+}
+
+:host {
+    @include wc-breadcrumbs();
+}

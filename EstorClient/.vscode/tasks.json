@@ -13,7 +13,7 @@
                 "start",
                 "--",
                 "--port",
-                "9999",
+                "9995",
                 "--content-base",
                 "build/",
                 "--inline",

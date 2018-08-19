@@ -1,3 +1,52 @@
-:host {
+@import "styles/views.scss";
 
+@mixin view-dashboard {
+
+    div.container {
+
+        div.content {
+
+            width: 100%;
+
+            div.panel-container {
+
+                display: flex;
+
+                div.left {
+
+                    display: flex;
+                    flex-wrap: wrap;
+                    flex: 0 0 70%;
+
+                    wc-dashboard-panel {
+
+                        flex: 0 0 calc(50% - 20px);
+
+                        &:nth-child(odd) {
+
+                            margin: auto 10px auto 0;
+                        }
+
+                        &:nth-child(even) {
+
+                            margin: auto 0 auto 10px;
+                        }
+                    }
+                }
+
+                div.right {
+
+                    flex: 0 0 30%;
+                }
+            }
+        }
+    }
+}
+
+view-dashboard {
+    @include view-dashboard();
+}
+
+:host {
+    @include view-dashboard();
 }
