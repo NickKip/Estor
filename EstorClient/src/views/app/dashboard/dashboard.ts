@@ -2,8 +2,8 @@ import { BaseLitComponent, component, html, TemplateResult } from "@commontimelt
 import { EstorManager } from "client/manager";
 import { EstorViews } from "views/register";
 
-@component({ tag: EstorViews.Login.tag, styles: [require("./login.scss")] })
-export class Login extends BaseLitComponent<EstorManager> {
+@component({ tag: EstorViews.Dashboard.tag, styles: [ require("./dashboard.scss") ] })
+export class Dashboard extends BaseLitComponent<EstorManager> {
 
     // === Init === //
 
@@ -18,8 +18,7 @@ export class Login extends BaseLitComponent<EstorManager> {
     componentMarkup (): TemplateResult {
 
         return html`
-            <div>
-                <h1>My Login Page</h1>
+            <div class="container">
             </div>
         `;
     }

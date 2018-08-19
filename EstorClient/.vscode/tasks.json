@@ -42,7 +42,7 @@
 
                         // Webpack 4
                         "beginsPattern": "^webpack$",
-                        "endsPattern": "^ℹ ｢wdm｣: Compiled successfully.$"
+                        "endsPattern": "Compiled successfully.$"
 
                         // Webpack 3
                         // "beginsPattern": "^Project is running at.*",
