@@ -1,0 +1,51 @@
+@import "styles/views.scss";
+
+@mixin view-prospect-detail {
+
+    div.container {
+
+        div.content {
+
+            width: 100%;
+
+            div.details-container {
+                display: flex;
+                margin-bottom: 20px;
+
+                div.prospect-detail {
+
+                    @include panel();
+                    width: calc(70% - 10px);
+                    margin-right: 20px;
+
+                    div.buttons {
+                        display: flex;
+
+                        wc-button.cancel {
+                            margin: 0 10px 0 auto;
+                        }
+                    }
+                }
+
+                div.prospect-events {
+
+                    @include panel();
+                    width: calc(30% - 10px);
+                }
+            }
+
+            div.contacts-container {
+
+                @include panel();
+            }
+        }
+    }
+}
+
+view-prospect-detail {
+    @include view-prospect-detail();
+}
+
+:host {
+    @include view-prospect-detail();
+}

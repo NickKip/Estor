@@ -1,6 +1,7 @@
 import { BaseLitWithLoader, component, html, prop, TemplateResult } from "@commontimeltd/infinity-framework";
+import { getProspectName } from "client/helpers";
 import { EstorManager } from "client/manager";
-import { BreadcrumbLink, EstorIcons, Prospect, ProspectContact } from "models";
+import { BreadcrumbLink, EstorIcons, Prospect } from "models";
 import { EstorViews } from "views/register";
 
 @component({ tag: EstorViews.Prospects.tag, styles: [ require("./prospects.scss") ] })
@@ -26,6 +27,12 @@ export class Prospects extends BaseLitWithLoader<EstorManager> {
 
             { text: "Prospects" }
         ];
+    }
+
+    private _goToProspect = async (prospect: Prospect): Promise<void> => {
+
+        await this.manager.store.setSelectedProspect(prospect);
+        this.manager.router.goToPage(EstorViews.ProspectDetail);
     }
 
     // === Render === //
@@ -88,13 +95,13 @@ export class Prospects extends BaseLitWithLoader<EstorManager> {
     private _renderRow = (item: Prospect): TemplateResult => {
 
         return html`
-            <div className="list-row ${item.quoteBlocked ? "quote-blocked" : ""} ${item.jobBlocked ? "job-blocked" : ""}">
+            <div className="list-row ${item.quoteBlocked ? "quote-blocked" : ""} ${item.jobBlocked ? "job-blocked" : ""}" on-click="${() => this._goToProspect(item)}">
                 <div class="list-col prospect-type">
                     <span><wc-icon icon="${item.isCompany ? EstorIcons.IcoMoon.Factory : EstorIcons.IcoMoon.User}"></wc-icon></span>
                 </div>
 
                 <div class="list-col prospect-name">
-                    <span>${this._getName(item)}</span>
+                    <span>${getProspectName(item)}</span>
                 </div>
 
                 <div class="list-col prospect-address">
@@ -110,26 +117,5 @@ export class Prospects extends BaseLitWithLoader<EstorManager> {
                 </div>
             </div>
         `;
-    }
-
-    private _getName (item: Prospect): string {
-
-        if (item.companyName) {
-
-            return item.companyName;
-        }
-        else {
-
-            const primary: ProspectContact = item.contacts.find(x => x.primary);
-
-            if (primary) {
-
-                return `${primary.firstName} ${primary.lastName}`;
-            }
-            else {
-
-                return "Unknown";
-            }
-        }
     }
 }

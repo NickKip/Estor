@@ -1,19 +1,20 @@
 import { Store } from "@commontimeltd/infinity-framework/src/store/store";
 import { EstorState } from "client/store/state";
+import { Prospect } from "models";
 
 export class EstorStore extends Store<EstorState> {
 
     // === Public === //
 
-    public async setMyCustomItem (item: string): Promise<void> {
+    public async setSelectedProspect (prospect: Prospect = null): Promise<void> {
 
-        this.state.myCustomItem = item;
+        this.state.selectedProspect = prospect;
         return await this._saveToPersistent();
     }
 
-    public getMyCustomItem (): string {
+    public getSelectedProspect (): Prospect {
 
-        return this.state.myCustomItem;
+        return this.state.selectedProspect;
     }
 
     // === Protected === //
@@ -24,7 +25,7 @@ export class EstorStore extends Store<EstorState> {
 
             _id: this.name,
             messageQueue: [],
-            myCustomItem: null
+            selectedProspect: null
         };
     }
 

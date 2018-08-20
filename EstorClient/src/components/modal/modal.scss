@@ -2,14 +2,67 @@
 
 @mixin wc-modal {
 
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+
     div.modal-container {
+      
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0,0,0,0.4);
+        display: flex;
+
+        div.inner-modal-container {
+            background-color: white;
+            border-radius: 10px;
+            width: 80vw;
+            margin: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+
+            h2 {
+                margin: 0;
+                text-align: center;
+            }
+
+            p {
+                text-align: center;
+                margin: 20px 0 30px;
+            }
+
+            div.buttons {
+                width: 100%;
+                margin: auto auto 0;
+
+                wc-wellbeing-button:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
     }
 }
 
 wc-modal {
-    @include wc-modal();
+    display: none;
+    @include wc-modal;
+}
+
+wc-modal[show] {
+    display: block;
+    @include wc-modal;
 }
 
 :host {
-    @include wc-modal();
+    display: none;
+    @include wc-modal;
+}
+
+:host([show]) {
+
+    display: block;
+    @include wc-modal;
 }

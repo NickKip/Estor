@@ -25,3 +25,5 @@ export { VersionInfo } from "./version-info/version-info";
 export { LatestEvents } from "./latest-events/latest-events";
 export { SubMenu } from "./sub-menu/sub-menu";
 export { PaginatedList } from "./paginated-list/paginated-list";
+export { ProspectAddEdit } from "./prospect-add-edit/prospect-add-edit";
+export { ProspectContactList } from "./prospect-contact-list/prospect-contact-list";

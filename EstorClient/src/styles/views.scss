@@ -33,3 +33,24 @@ div.container {
         }
     }
 }
+
+@mixin panel {
+
+    @include box-shadow();
+    padding: 20px;
+    background-color: white;
+
+    div.heading {
+        display: flex;
+        color: $default-font-color;
+        margin-bottom: 20px;
+
+        wc-icon {
+            margin: auto 10px auto 0;
+        }
+
+        h3 {
+            margin: auto 0;
+        }
+    }
+}

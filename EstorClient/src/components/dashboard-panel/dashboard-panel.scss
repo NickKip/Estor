@@ -1,28 +1,13 @@
 @import "styles/default.scss";
+@import "styles/views.scss";
 
 @mixin wc-dashboard-panel {
 
     div.dashboard-panel-container {
 
-        @include box-shadow();
+        @include panel();
         min-height: 350px;
-        background-color: white;
-        padding: 20px;
         margin-bottom: 20px;
-
-        div.heading {
-            display: flex;
-            color: $default-font-color;
-            margin-bottom: 20px;
-
-            wc-icon {
-                margin: auto 10px auto 0;
-            }
-
-            h3 {
-                margin: auto 0;
-            }
-        }
 
         div.stat {
             display: flex;

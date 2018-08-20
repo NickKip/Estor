@@ -1,0 +1,19 @@
+@import "styles/default.scss";
+
+@mixin wc-prospect-contact-list {
+
+    div.prospect-contact-list-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+}
+
+wc-prospect-contact-list {
+    @include wc-prospect-contact-list();
+}
+
+:host {
+    @include wc-prospect-contact-list();
+}

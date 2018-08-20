@@ -8,5 +8,6 @@ export const EstorViews: ViewRegistrations = {
     // App
 
     Dashboard: { tag: "view-dashboard", title: "Dashboard | Estor", uri: "dashboard" },
-    Prospects: { tag: "view-prospects", title: "Prospects | Estor", uri: "prospects" }
+    Prospects: { tag: "view-prospects", title: "Prospects | Estor", uri: "prospects" },
+    ProspectDetail: { tag: "view-prospect-detail", title: "Prospect Detail", uri: "prospect-detail" }
 };

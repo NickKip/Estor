@@ -10,9 +10,7 @@
 
             div.prospects-list {
 
-                @include box-shadow();
-                padding: 20px;
-                background-color: white;
+                @include panel();
 
                 div.prospect-actions {
 
