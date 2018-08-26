@@ -1,0 +1,35 @@
+@import "styles/views.scss";
+
+@mixin view-quotes {
+
+    div.container {
+
+        div.content {
+
+            width: 100%;
+
+            div.quote-list {
+
+                @include panel();
+
+                div.quote-actions {
+
+                    display: flex;
+
+                    wc-button {
+                        flex: 0 0 auto;
+                        margin: 0 10px 20px 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+view-quotes {
+    @include view-quotes();
+}
+
+:host {
+    @include view-quotes();
+}

@@ -14,7 +14,7 @@ export class Prospects extends BaseLitWithLoader<EstorManager> {
 
     async _init (): Promise<void> {
 
-        this.prospects = require("../../../fake/prospects.json");
+        this.prospects = require("../../../../fake/prospects.json");
     }
 
     _setupEventListeners (): void {}

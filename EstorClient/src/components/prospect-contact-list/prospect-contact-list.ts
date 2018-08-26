@@ -1,5 +1,6 @@
 import { BaseLitComponent, component, html, prop, TemplateResult } from "@commontimeltd/infinity-framework";
 import { EstorManager } from "client/manager";
+import { EstorEvents } from "events";
 import { EstorIcons, ProspectContact } from "models";
 
 @component({ tag: "wc-prospect-contact-list", styles: [ require("./prospect-contact-list.scss") ] })
@@ -18,7 +19,10 @@ export class ProspectContactList extends BaseLitComponent<EstorManager> {
 
     async _init (): Promise<void> {}
 
-    _setupEventListeners (): void {}
+    _setupEventListeners (): void {
+
+        this.manager.on(EstorEvents.CloseModal, () => this.modalShowing = false);
+    }
 
     // === Private === //
 
@@ -41,7 +45,7 @@ export class ProspectContactList extends BaseLitComponent<EstorManager> {
                     renderRow="${this._renderRow}"
                 ></wc-paginated-list>
 
-                <wc-modal show?="${this.modalShowing}"></wc-modal>
+                <wc-new-prospect-contact-modal show?="${this.modalShowing}"></wc-new-prospect-contact-modal>
             </div>
         `;
     }

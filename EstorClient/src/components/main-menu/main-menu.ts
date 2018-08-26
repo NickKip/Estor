@@ -19,6 +19,11 @@ export class MainMenu extends BaseLitComponent<EstorManager> {
         this.manager.router.goToPage(EstorViews.Prospects);
     }
 
+    private _goToQuotes = (): void => {
+
+        this.manager.router.goToPage(EstorViews.Quotes);
+    }
+
     // === Render === //
 
     componentMarkup (): TemplateResult {
@@ -27,7 +32,7 @@ export class MainMenu extends BaseLitComponent<EstorManager> {
             <div class="main-menu-container">
                 <div class="actions">
                     <wc-icon-button icon="${EstorIcons.IcoMoon.User}" width="20" height="20" hoverText="Prospects" action="${this._goToProspects}"></wc-icon-button>
-                    <wc-icon-button icon="${EstorIcons.IcoMoon.NoteBook}" width="20" height="20" hoverText="Quotes"></wc-icon-button>
+                    <wc-icon-button icon="${EstorIcons.IcoMoon.NoteBook}" width="20" height="20" hoverText="Quotes" action="${this._goToQuotes}"></wc-icon-button>
                     <wc-icon-button icon="${EstorIcons.IcoMoon.Truck}" width="20" height="20" hoverText="Jobs"></wc-icon-button>
                     <wc-icon-button icon="${EstorIcons.IcoMoon.Ledger}" width="20" height="20" hoverText="Invoicing"></wc-icon-button>
                     <wc-icon-button icon="${EstorIcons.IcoMoon.Graph2}" width="20" height="20" hoverText="Reporting"></wc-icon-button>

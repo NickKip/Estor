@@ -1,0 +1,15 @@
+@import "styles/views.scss";
+
+@mixin view-quote-detail {
+
+    div.container {
+    }
+}
+
+view-quote-detail {
+    @include view-quote-detail();
+}
+
+:host {
+    @include view-quote-detail();
+}

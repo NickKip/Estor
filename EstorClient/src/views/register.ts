@@ -9,5 +9,9 @@ export const EstorViews: ViewRegistrations = {
 
     Dashboard: { tag: "view-dashboard", title: "Dashboard | Estor", uri: "dashboard" },
     Prospects: { tag: "view-prospects", title: "Prospects | Estor", uri: "prospects" },
-    ProspectDetail: { tag: "view-prospect-detail", title: "Prospect Detail", uri: "prospect-detail" }
+    ProspectDetail: { tag: "view-prospect-detail", title: "Prospect Detail", uri: "prospect-detail" },
+
+    // Quotes
+    Quotes: { tag: "view-quotes", title: "Quotes", uri: "quotes" },
+    QuoteDetail: { tag: "view-quote-detail", title: "Quote Detail", uri: "quotes-detail" }
 };

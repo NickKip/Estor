@@ -27,3 +27,4 @@ export { SubMenu } from "./sub-menu/sub-menu";
 export { PaginatedList } from "./paginated-list/paginated-list";
 export { ProspectAddEdit } from "./prospect-add-edit/prospect-add-edit";
 export { ProspectContactList } from "./prospect-contact-list/prospect-contact-list";
+export { NewProspectContactModal } from "./new-prospect-contact-modal/new-prospect-contact-modal";

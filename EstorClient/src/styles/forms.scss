@@ -1,0 +1,32 @@
+div.form-item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    margin: auto 0 20px;
+
+    &:last-child {
+        margin-right: 0;
+    }
+
+    &.no-margin {
+        margin-bottom: 0;
+    }
+
+    label {
+        margin: auto 10px auto 0;
+        min-width: 150px;
+    }
+
+    input, textarea {
+        font-size: 1em;
+        padding: 7px 10px;
+        border-radius: 4px;
+        border: 1px solid $default-border-color;
+        flex: 1;
+
+        &:disabled {
+            background-color: $default-border-color;
+            color: $default-font-color;
+        }
+    }
+}
