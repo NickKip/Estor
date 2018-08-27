@@ -36,27 +36,27 @@ export class ProspectAddEdit extends BaseLitComponent<EstorManager> {
                         : this._renderPrimary()
                 }
 
-                <div class="detail-item">
+                <div class="form-item">
                     <label>Address 1</label>
                     <input value="${this.prospect.addressLine1}" disabled?="${!this.editing}" />
                 </div>
 
-                <div class="detail-item">
+                <div class="form-item">
                     <label>Address 2</label>
                     <input value="${this.prospect.addressLine2}" disabled?="${!this.editing}" />
                 </div>
 
-                <div class="detail-item">
+                <div class="form-item">
                     <label>City</label>
                     <input value="${this.prospect.city}" disabled?="${!this.editing}" />
                 </div>
 
-                <div class="detail-item">
+                <div class="form-item">
                     <label>Postcode</label>
                     <input value="${this.prospect.postcode}" disabled?="${!this.editing}" />
                 </div>
 
-                <div class="detail-item">
+                <div class="form-item">
                     <label>Notes</label>
                     <textarea rows="12" value="${this.prospect.notes}" disabled?="${!this.editing}"></textarea>
                 </div>
@@ -67,17 +67,17 @@ export class ProspectAddEdit extends BaseLitComponent<EstorManager> {
     private _renderCompany (): TemplateResult {
 
         return html`
-            <div class="detail-item">
+            <div class="form-item">
                 <label>Company Name</label>
                 <input value="${this.prospect.companyName}" disabled?="${!this.editing}" />
             </div>
 
-            <div class="detail-item">
+            <div class="form-item">
                 <label>Company Telephone</label>
                 <input value="${this.prospect.companyTelephone}" disabled?="${!this.editing}" />
             </div>
 
-            <div class="detail-item no-margin">
+            <div class="form-item no-margin">
                 <label>Company Email</label>
                 <input value="${this.prospect.companyEmail}" disabled?="${!this.editing}" />
             </div>
@@ -100,22 +100,22 @@ export class ProspectAddEdit extends BaseLitComponent<EstorManager> {
                     <wc-icon-button icon="${EstorIcons.IcoMoon.Pencil}" hoverText="Edit primary contact"></wc-icon-button>
                 </div>
 
-                <div class="detail-item">
+                <div class="form-item">
                     <label>First Name</label>
                     <input value="${primary.firstName}" disabled?="${true}" />
                 </div>
 
-                <div class="detail-item">
+                <div class="form-item">
                     <label>Last Name</label>
                     <input value="${primary.lastName}" disabled?="${true}" />
                 </div>
 
-                <div class="detail-item">
+                <div class="form-item">
                     <label>Telephone</label>
                     <input value="${primary.telephone}" disabled?="${true}" />
                 </div>
 
-                <div class="detail-item no-margin">
+                <div class="form-item no-margin">
                     <label>Email</label>
                     <input value="${primary.email}" disabled?="${true}" />
                 </div>

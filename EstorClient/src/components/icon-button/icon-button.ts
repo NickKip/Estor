@@ -15,7 +15,7 @@ export class IconButton extends BaseLitComponent<EstorManager> {
     iconColor: string = "auto";
 
     @prop({ type: String })
-    iconHoverColor: string = "auto";
+    iconHoverColor: string = this.iconColor;
 
     @prop({ type: Object })
     icon: IconDefinition = null;
@@ -40,7 +40,7 @@ export class IconButton extends BaseLitComponent<EstorManager> {
 
     action: () => void;
 
-    private previousColor: string = "auto";
+    private previousColor: string = this.iconColor;
     private hoverTextTimeout: number;
 
     // === Init === //
@@ -108,7 +108,26 @@ export class IconButton extends BaseLitComponent<EstorManager> {
 
     // === Render === //
 
+    // tslint:disable-next-line no-any
+    _shouldRender (props: any, changedProps: any, prevProps: any): boolean {
+
+        // tslint:disable-next-line no-console
+        // console.log("Paginated List Attr changed:", name, changedProps, prevProps);
+
+        if (changedProps.iconColor) {
+
+            this.previousColor = changedProps.iconColor;
+        }
+
+        return true;
+    }
+
     componentMarkup (): TemplateResult {
+
+        if (!this.icon) {
+
+            return null;
+        }
 
         this.onmouseover = this._onMouseOver;
         this.onmouseleave = this._onMouseOut;

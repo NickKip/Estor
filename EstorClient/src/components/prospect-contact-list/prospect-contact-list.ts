@@ -1,6 +1,7 @@
 import { BaseLitComponent, component, html, prop, TemplateResult } from "@commontimeltd/infinity-framework";
 import { EstorManager } from "client/manager";
 import { EstorEvents } from "events";
+import { ProspectContactModalArgs } from "events/event-args";
 import { EstorIcons, ProspectContact } from "models";
 
 @component({ tag: "wc-prospect-contact-list", styles: [ require("./prospect-contact-list.scss") ] })
@@ -28,7 +29,14 @@ export class ProspectContactList extends BaseLitComponent<EstorManager> {
 
     private _showModal = (): void => {
 
-        this.modalShowing = !this.modalShowing;
+        this.modalShowing = true;
+        this.manager.emit(EstorEvents.OpenProspectContactModal, new ProspectContactModalArgs());
+    }
+
+    private _rowClick = (contact: ProspectContact): void => {
+
+        this.modalShowing = true;
+        this.manager.emit(EstorEvents.OpenProspectContactModal, new ProspectContactModalArgs(contact));
     }
 
     // === Render === //
@@ -94,7 +102,7 @@ export class ProspectContactList extends BaseLitComponent<EstorManager> {
     private _renderRow = (item: ProspectContact): TemplateResult => {
 
         return html`
-            <div class="list-row">
+            <div class="list-row" on-click="${() => this._rowClick(item)}">
                 <div class="list-col prospect-type">
                     <span><wc-icon icon="${item.primary ? EstorIcons.IcoMoon.Tick : null}"></wc-icon></span>
                 </div>

@@ -5,6 +5,7 @@
     display: block;
     // flex: 0 1 auto;
     margin-bottom: 20px;
+    border-radius: 4px;
 
     div.button-container {
 
@@ -129,6 +130,10 @@
                     div.left-icon,
                     div.right-icon {
                         color: $default-font-color;
+                    }
+
+                    &:hover {
+                        background-color: rgba(0,0,0,0.2);
                     }
                 }
 

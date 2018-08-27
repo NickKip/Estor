@@ -55,7 +55,11 @@ export class ProspectDetail extends BaseLitWithLoader<EstorManager> {
                 <div class="content">
                     <wc-breadcrumbs breadcrumbs="${this._generateBreadcrumbs()}"></wc-breadcrumbs>
                     <h1>${getProspectName(this.prospect)}</h1>
-                    <p>Manage your prospect.</p>
+
+                    <div class="top-actions">
+                        <wc-button type="transparent" leftIcon="${EstorIcons.IcoMoon.Ledger}" label="New Quote"></wc-button>
+                        <wc-button type="transparent" leftIcon="${EstorIcons.IcoMoon.Truck}" label="New Job"></wc-button>
+                    </div>
 
                     <div class="details-container">
                         <div class="prospect-detail">
@@ -89,7 +93,7 @@ export class ProspectDetail extends BaseLitWithLoader<EstorManager> {
 
                     <div class="contacts-container">
                         <div class="heading">
-                            <wc-icon icon="${EstorIcons.IcoMoon.Users}"></wc-icon>
+                            <wc-icon icon="${EstorIcons.IcoMoon.Users}" width="10" height="10"></wc-icon>
                             <h3>Contacts</h3>
                         </div>
 

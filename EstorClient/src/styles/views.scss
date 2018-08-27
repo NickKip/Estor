@@ -15,6 +15,12 @@ div.container {
 
     div.content {
 
+        div.top-actions {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
         padding: 10px 40px 20px;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
@@ -51,6 +57,11 @@ div.container {
 
         h3 {
             margin: auto 0;
+
+            span {
+                color: $default-font-color-light;
+                font-size: 0.6em;
+            }
         }
     }
 }

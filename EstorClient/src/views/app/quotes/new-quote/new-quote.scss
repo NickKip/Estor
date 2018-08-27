@@ -1,0 +1,193 @@
+@import "styles/views.scss";
+@import "styles/forms.scss";
+
+@mixin view-new-quote {
+
+    $lightened-color: lighten($default-border-color, 10%);
+    $lightened-font-color: lighten($default-font-color-light, 15%);
+
+    div.container {
+
+        div.content {
+
+            width: 100%;
+
+            div.content-inner {
+                display: flex;
+                flex-direction: column;
+
+                div.quote-row {
+                    display: flex;
+
+                    div.new-quote-panel {
+                        display: flex;
+
+                        @include panel();
+                        margin-bottom: 20px;
+                        margin-right: 20px;
+                        flex: 0 0 70%;
+
+                        div.form-item {
+                            margin: 0;
+
+                            textarea {
+                                font-size: 0.8em;
+                                line-height: 1.4em;
+                                cursor: pointer;
+                                resize: vertical;
+
+                                &:disabled {
+                                    color: $default-font-color-light;
+                                    // background-color: transparent;
+                                }
+
+                                &:hover {
+                                    border: 1px solid $default-font-color;
+                                    color: $default-font-color;
+                                }
+                            }
+                        }
+
+                        div.opening-text {
+
+                            padding: 10px;
+                            border: 1px dashed $lightened-color;
+                            border-radius: 4px;
+
+                            &:hover {
+                                border: 1px solid $default-font-color;
+                                cursor: pointer;
+
+                                p {
+                                    color: $default-font-color;
+                                }
+                            }
+
+                            p {
+                                font-size: 0.7em;
+                                color: $lightened-font-color;
+                            }
+                        }
+                    }
+
+                    div.help-text {
+                        flex: 0 0 calc(30% - 20px);
+                        padding: 20px;
+
+                        div.heading {
+                            display: flex;
+                            color: $default-font-color;
+                            margin-bottom: 10px;
+                            color: $default-font-color-light;
+
+                            wc-icon {
+                                margin: auto 10px auto 0;
+                            }
+
+                            h4 {
+                                margin: auto 0;
+                                font-size: 1em;
+                                color: $default-font-color-light;
+                            }
+                        }
+
+                        p {
+                            font-size: 0.8em;
+                            color: $default-font-color-light;
+                        }
+                    }
+
+                    div.work-item {
+
+                        display: flex;
+                        flex-direction: column;
+                        @include panel();
+                        margin-bottom: 20px;
+                        margin-right: 20px;
+                        flex: 0 0 70%;
+
+                        div.form-item {
+
+                            textarea {
+                                font-size: 0.8em;
+                                line-height: 1.4em;
+                                resize: vertical;
+                            }
+                        }
+                    }
+
+                    div.totals {
+                        display: flex;
+                        @include panel();
+                        flex: 0 0 70%;
+                        margin-bottom: 20px;
+                        margin-right: 20px;
+                        align-items: center;
+                        justify-content: flex-end;
+
+                        p {
+                            margin: auto 0 auto 20px;
+
+                            span {
+                                text-transform: uppercase;
+                                font-size: 0.7em;
+                                color: $default-font-color-light;
+                            }
+                        }
+                    }
+
+                    div.new-work-item {
+                        border: 2px dashed $default-border-color;
+                        border-radius: 4px;
+                        flex: 0 0 70%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+                        color: $default-font-color-light;
+                        margin-bottom: 20px;
+                        margin-right: 20px;
+
+                        wc-icon {
+                            margin: 20px 10px 20px auto;
+                        }
+
+                        p {
+                            margin: 20px auto 20px 0;
+                            color: $default-font-color-light;
+                        }
+
+                        &:hover {
+                            border: 3px dashed $default-font-color;
+
+                            p {
+                                color: $default-font-color;
+                            }
+                        }
+                    }
+                }
+
+                div.divider {
+                    margin: 10px 0;
+
+                    hr {
+                        display: block;
+                        height: 1px;
+                        border: 0;
+                        border-top: 1px solid $default-border-color;
+                        margin: 1em 0;
+                        padding: 0; 
+                    }
+                }
+            }
+        }
+    }
+}
+
+view-new-quote {
+    @include view-new-quote();
+}
+
+:host {
+    @include view-new-quote();
+}

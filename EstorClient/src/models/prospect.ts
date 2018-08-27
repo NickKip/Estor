@@ -27,7 +27,7 @@ export interface ProspectContact {
     email: string;
     primary: boolean;
     active: boolean;
-    insertedAt: string;
-    updatedAt: string;
+    insertedAt?: string;
+    updatedAt?: string;
     notes: string;
 }

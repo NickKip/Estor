@@ -24,7 +24,7 @@ export class Quotes extends BaseLitWithLoader<EstorManager> {
 
     private _newQuote = (): void => {
 
-        this.manager.router.goToPage(EstorViews.QuoteDetail);
+        this.manager.router.goToPage(EstorViews.NewQuote);
     }
 
     // === Render === //
@@ -38,15 +38,42 @@ export class Quotes extends BaseLitWithLoader<EstorManager> {
                 <div class="content">
                     <wc-breadcrumbs breadcrumbs="${this._generateBreadcrumbs()}"></wc-breadcrumbs>
                     <h1>Quotes</h1>
-                    <p>View and manage your quotes.</p>
+
+                    <div class="top-actions">
+                        <wc-button type="transparent" leftIcon="${EstorIcons.IcoMoon.Plus}" label="New Quote" action="${this._newQuote}"></wc-button>
+                        <wc-button type="transparent" leftIcon="${EstorIcons.IcoMoon.Truck}" label="View Historic Quotes"></wc-button>
+                    </div>
 
                     <div class="quote-list">
-                        <div class="quote-actions">
-                            <wc-button leftIcon="${EstorIcons.IcoMoon.Plus}" label="New Quote" action="${this._newQuote}"></wc-button>
+                        <div class="heading">
+                            <wc-icon icon="${EstorIcons.IcoMoon.Ledger}"></wc-icon>
+                            <h3>Recently Approved <span>(Last 30 days)</span></h3>
                         </div>
 
                         <wc-paginated-list
-                            items="[${[]}]"
+                            items="${[]}"
+                        ></wc-paginated-list>
+                    </div>
+
+                    <div class="quote-list">
+                        <div class="heading">
+                            <wc-icon icon="${EstorIcons.IcoMoon.Ledger}"></wc-icon>
+                            <h3>Recently Expired / Declined <span>(Last 30 days)</span></h3>
+                        </div>
+
+                        <wc-paginated-list
+                            items="${[]}"
+                        ></wc-paginated-list>
+                    </div>
+
+                    <div class="quote-list">
+                        <div class="heading">
+                            <wc-icon icon="${EstorIcons.IcoMoon.Ledger}"></wc-icon>
+                            <h3>Pending</h3>
+                        </div>
+
+                        <wc-paginated-list
+                            items="${[]}"
                         ></wc-paginated-list>
                     </div>
                 </div>

@@ -13,5 +13,6 @@ export const EstorViews: ViewRegistrations = {
 
     // Quotes
     Quotes: { tag: "view-quotes", title: "Quotes", uri: "quotes" },
-    QuoteDetail: { tag: "view-quote-detail", title: "Quote Detail", uri: "quotes-detail" }
+    QuoteDetail: { tag: "view-quote-detail", title: "Quote Detail", uri: "quotes-detail" },
+    NewQuote: { tag: "view-new-quote", title: "New Quote", uri: "new-quote" }
 };

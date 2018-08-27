@@ -17,9 +17,6 @@ export class Button extends BaseLitComponent<EstorManager> {
     @prop({ type: Boolean })
     leftIconSpin: boolean = false;
 
-    @prop({ type: String })
-    leftIconColor: string = "auto";
-
     @prop({ type: Boolean })
     leftAlign: boolean = false;
 
@@ -30,13 +27,13 @@ export class Button extends BaseLitComponent<EstorManager> {
     rightIconSpin: boolean = false;
 
     @prop({ type: String })
-    rightIconColor: string = "auto";
-
-    @prop({ type: String })
     label: string;
 
     @prop({ type: Boolean })
     disabled: boolean;
+
+    private leftIconColor: string = "auto";
+    private rightIconColor: string = "auto";
 
     private action: () => void;
 
@@ -57,6 +54,31 @@ export class Button extends BaseLitComponent<EstorManager> {
     }
 
     // === Render === //
+
+    // tslint:disable-next-line no-any
+    _shouldRender (props: any, changedProps: any, prevProps: any): boolean {
+
+        if (changedProps && changedProps.disabled !== undefined) {
+
+            const button: HTMLButtonElement = this.shadowRoot.querySelector("button");
+
+            if (this.leftIcon) {
+
+                changedProps.disabled
+                    ? this.leftIconColor = button ? getComputedStyle(button).color : "auto"
+                    : this.leftIconColor = "auto";
+            }
+
+            if (this.rightIcon) {
+
+                changedProps.disabled
+                    ? this.rightIconColor = button ? getComputedStyle(button).color : "auto"
+                    : this.rightIconColor = "auto";
+            }
+        }
+
+        return true;
+    }
 
     componentMarkup (): TemplateResult {
 
